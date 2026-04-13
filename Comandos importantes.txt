@@ -1,0 +1,13 @@
+Instalação do Playwright: npm init playwright@latest;
+Para Rodar o test base que vem ao instalar a ferramenta: npx playwright test;
+Para abrir o resultado dos testes que rodaram: npx playwright show-report;
+Para abrir o modo UI (um front da ferramenta): npx playwright test --ui;
+Abrir uma tela para mapear as informações da tela que está trabalhando (testes front): npx playwright codegen "url da página";
+    -> O legal dessa função: conforme você interage com os textos e botões, automaticamente ele vai montando o código do teste;
+Para rodar um teste em modo assistido: npx playwright test --headed;
+Para debugar o teste: npx playwright test --debug;
+Para rodar apenas um arquivo de teste: npx playwright test tests/example.spec.js;
+Para rodar apenas um teste específico: npx playwright test --grep "nome do teste";
+Para rodar apenas um teste dentro de um arquivo específico: npx playwright test tests/example.spec.js --grep "nome do teste";
+
+Site bacana para validar seu código: onecompiler;
