@@ -1,35 +1,35 @@
 name: Playwright Tests
 
-on:
+on: # Define os gatilhos para a execução do workflow
   push:
     branches: [main, master]
   pull_request:
     branches: [main, master]
 
-jobs:
+jobs: # Define as tarefas a serem executadas
   test:
     name: Run Playwright Tests
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout do repositório
+    steps: # Define as etapas do trabalho
+      - name: Checkout do repositório   # Ação para fazer checkout do código-fonte do repositório
         uses: actions/checkout@v4
 
-      - name: Instalar Node.js
+      - name: Instalar Node.js   # Ação para configurar o ambiente Node.js, necessário para executar os testes do Playwright
         uses: actions/setup-node@v4
-        with:
+        with:     # Especifica a versão do Node.js a ser usada
           node-version: 20
 
-      - name: Instalar dependências
+      - name: Instalar dependências   # Ação para instalar as dependências do projeto
         run: npm install
 
-      - name: Instalar navegadores do Playwright
+      - name: Instalar navegadores do Playwright   # Ação para instalar os navegadores necessários para os testes do Playwright
         run: npx playwright install --with-deps
 
-      - name: Rodar testes
+      - name: Rodar testes   # Ação para executar os testes do Playwright
         run: npx playwright test
 
-      - name: Publicar relatório de testes
+      - name: Publicar relatório de testes   # Ação para publicar o relatório de testes
         uses: actions/upload-artifact@v4
         if: always()
         with:
